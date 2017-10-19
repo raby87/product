@@ -24,6 +24,33 @@ Route::get('/admin', function () {
 Route::get('/admin/register', function () {
     return view('auth/register');
 });
+Route::get('/session', function () {
+    $sid= session_id();
+    if(empty($sid)){
+        session_start();
+        $sid= session_id();
+    }
+
+    echo 'sid:'.$sid.PHP_EOL;
+    $_SESSION['a']='12';
+    var_dump($_SESSION);
+
+    $lifeTime = 5;
+    echo session_id();
+    setcookie(session_name(), session_id(), time() + $lifeTime, "/");
+    return ;
+    //return view('auth/register');
+});
+
+
+Route::get('/test', function () {
+    session_start();
+    echo session_name().PHP_EOL;
+    echo session_id();
+    var_dump($_SESSION);
+    return ;
+});
+
 
 Auth::routes();
 
