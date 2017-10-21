@@ -1,6 +1,7 @@
 ### .gitattribute 用于设置文件的对比方式（常用非文本文件）
 ```
 <?php
+
 $config = array (	
 		//应用ID,您的APPID。
 		'app_id' => "2016080800193092",
