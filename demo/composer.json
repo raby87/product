@@ -1,0 +1,9 @@
+{
+    "autoload": {
+        "//": "para1 namespace : para2 path",
+        "psr-4": {
+            "Pay\\": "pay/"
+        }
+    }
+}
+
