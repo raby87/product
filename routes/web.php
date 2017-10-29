@@ -11,8 +11,30 @@
 |
 */
 
+Route::post('aaa',function(){
+
+    file_put_contents("test.log","逻辑处理".json_encode($_POST));
+        echo json_encode(['msg'=>'充值成功'.json_encode($_POST)]); die;
+    return 'Hello World';
+});
+
+
+
 Route::get('/', function () {
-    echo json_encode($_SERVER);die;
+    $collection = collect([
+        ['name' => 'a', 'price' => 200],
+        ['name' => 'b', 'price' => 150],
+        ['name' => 'a', 'price' => 100],
+    ]);
+
+
+    $sorted = $collection->groupBy(function($v,$k){
+        echo "<pre />";
+        var_dump($v);
+        var_dump($k);
+    })->toArray();
+
+    echo json_encode($sorted);die;
     return view('welcome',['a'=>'b']);
 });
 Route::get('/admin/login', function () {
