@@ -92,7 +92,7 @@ class HttpUrl{
         return $this->error;
     }
     function timeout($time){
-        $this->timeout;
+        $this->timeout=$time;
         return $this;
     }
 

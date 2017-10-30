@@ -29,6 +29,8 @@ class PayController
     public function notify($request){
         $pay = $_POST['channel'] ?: 'Alipay.Web';
 
+        //写日志  request_all()
+
         if(\Pay\Pay::driver($pay)->verify($request->all())){
 
             $pay_id = \Pay\Pay::driver($pay)->getPayID();
